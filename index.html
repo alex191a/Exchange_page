@@ -6,20 +6,20 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body onload="Hello()">
-        <header>hello</header>
         <div class="containers">
+            <h1>Sonic the Exchanger</h1>
             <div class="container">
                 <h1 id="test" class="test">0</h1> 
             </div>
             <div class="options">
-                <input type="text" name="amount" id="am" onkeydown="if (event.keyCode == 13) { exchange(); return false; }">
+                <input type="number" name="amount" id="am" class="input" onkeydown="if (event.keyCode == 13) { exchange(); return false; }">
                 <select name="valutas" id="select1" onchange="getBase()">
                 </select>
                 <input type="date" id="date" name="datetime">
                 <select name="valutato" id="select2">
                 </select>
             </div>
-            <button onclick="geoLocation()">hello</button>
+            <button onclick="geoLocation()" class="geo">Find Min Valuta</button>
         </div>
     </body>
 </html>
