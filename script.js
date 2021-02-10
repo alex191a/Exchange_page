@@ -1,5 +1,5 @@
 let date="latest"
-let base = "DKK"
+let base = "RUB"
 let exchangelist= []
 let obj;
 let ApiCall
@@ -28,6 +28,7 @@ function Hello (){
     document.getElementById('date').addEventListener('change',() =>{ date = document.getElementById('date').value;getBase()} )
 }
 function fetchh(url){
+    console.log('2')
     for(let i = 0; i< exchangelist.length;i++){
         console.log(exchangelist[i].name);
         if (exchangelist[i].name == url){
@@ -94,14 +95,24 @@ function getcountry(pos){
 
     let countryCall = fetch(weat);
     let country = "fuck";
-    let prom = countryCall.then(data => data.json()).then(data =>{
+    countryCall.then(data => data.json()).then(data =>{
         country = data.sys.country
         console.log('jello')
         weat = 'https://restcountries.eu/rest/v2/alpha/'+ country
         countryCall =fetch(weat)
-        prom = countryCall.then(data => data.json()).then(data => base = data.currencies[0].code)
+        prom = countryCall.then(data => data.json()).then(data => base = data.currencies[0].code).then(()=>{
+            promise=fetchh(urll())
+            for (i = 0 ; i< document.getElementById('select1').length;i++){
+                
+                if(document.getElementById('select1').options[i].text == base)
+                {
+                    document.getElementById('select1').options[i].selected = true;
+                    break;
+                }
+            }
+            relatedvalues()
+        })
     })
-        promise=fetchh(urll())
-        relatedvalues()
+        
 
 }
